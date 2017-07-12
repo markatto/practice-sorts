@@ -1,29 +1,7 @@
 #! /usr/bin/env python3.6
 import sys
+from heapq import merge
 from runner import run_sort_test
-
-def merge(a, b):
-    '''merge two sorted lists'''
-    c = []
-    a_pos, b_pos = 0, 0
-    a_len, b_len = len(a), len(b)
-    while a_pos < a_len or b_pos < b_len:
-        if b_pos >= b_len: 
-            c.append(a[a_pos])
-            a_pos += 1
-            continue
-        if a_pos >= a_len:
-            c.append(b[b_pos])
-            b_pos += 1
-            continue
-        if a[a_pos] < b[b_pos]:
-            c.append(a[a_pos])
-            a_pos += 1
-        else:
-            c.append(b[b_pos])
-            b_pos += 1
-    return c
-
 
 def msort(data):
     '''do a merge sort'''
