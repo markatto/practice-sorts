@@ -1,26 +1,17 @@
-#! /usr/bin/env python3
+#! /usr/bin/env python3.6
+from runner import run_sort_test
 
-def sort(data, debug=False):
-    i = 0
-    while i < len(data) - 1:
-        if(debug):
-            print(i)
-            print(data)
-        if data[i] > data[i + 1]:
-            tmp = data[i]
-            data[i] = data[i + 1]
-            data[i + 1] = tmp
-            i = 0
-            continue
-        i += 1
+def bubble_sort(a):
+    while True:
+        for i, _ in enumerate(a[:-1]):
+            if a[i+1] < a[i]:
+                tmp = a[i]
+                a[i] = a[i+1]
+                a[i+1] = tmp
+                break
+        else:
+            break
 
 
 if __name__ == '__main__':
-    import sys
-    import random
-    debug = True if len(sys.argv) > 2 and sys.argv[2] == 'debug' else False
-    data = [random.randint(0,100) for i in range(int(sys.argv[1]))]
-
-    print(data)
-    sort(data, debug)
-    print(data)
+    run_sort_test(bubble_sort)
