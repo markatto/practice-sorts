@@ -5,9 +5,7 @@ def bubble_sort(a):
     while True:
         for i, _ in enumerate(a[:-1]):
             if a[i+1] < a[i]:
-                tmp = a[i]
-                a[i] = a[i+1]
-                a[i+1] = tmp
+                a[i], a[i+1] = a[i+1], a[i]
                 break
         else:
             break
